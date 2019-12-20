@@ -1,0 +1,464 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: "\e151";
+}
+
+a.desc:after {
+    content: "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+
+
+
+/**OWN**/
+body {
+    background: #edeef0;
+}
+
+body section {
+    max-width: 100%;
+}
+
+.text-selected {
+    color: orange;
+}
+
+.min-h-100 {
+    min-height: 100%!important;
+}
+
+.op-5 {
+    opacity: 0.5;
+}
+
+
+/* CROPPED IMAGE */
+
+.center-cropped {
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+}
+
+
+/* Set the image to fill its parent and make transparent */
+
+.center-cropped img {
+    min-height: 100%;
+    min-width: 100%;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    /* IE 5-7 */
+    filter: alpha(opacity=0);
+    /* modern browsers */
+    opacity: 0;
+}
+
+
+/**
+ * Header
+ */
+
+#Header {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3), rgba(237, 238, 240, 1)), url("../images/header.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    outline: black;
+}
+
+.header-title h1 {
+    font-size: 60px;
+}
+
+.header-title p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 25px;
+}
+
+.header-button {
+    font-size: 35px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/**
+ * Arrow Button
+ */
+
+.arrow-btn {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    position: relative;
+    padding: 10px 50px 10px 20px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3);
+    transform: scale(3);
+}
+
+.arrow-btn .arrow-btn-bg {
+    background: orange;
+    width: 30px;
+    height: 3px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: 1px;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.arrow-btn:hover {
+    padding-right: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.arrow-btn:hover .arrow-btn-bg {
+    height: 100%;
+    width: 100%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    border-radius: 20px;
+}
+
+.arrow-btn .arrow-btn-bg:before,
+.arrow-btn .arrow-btn-bg:after {
+    content: '';
+    height: 3px;
+    width: 10px;
+    background: orange;
+    position: absolute;
+    right: -3px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.arrow-btn .arrow-btn-bg:before {
+    bottom: 3px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.arrow-btn .arrow-btn-bg:after {
+    top: 3px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.arrow-btn:hover .arrow-btn-bg:before,
+.arrow-btn:hover .arrow-btn-bg:after {
+    right: 0;
+}
+
+.arrow-btn:hover .arrow-btn-bg:before {
+    display: none;
+}
+
+.arrow-btn:hover .arrow-btn-bg:after {
+    display: none;
+}
+
+
+/**
+ *
+ */
+
+#Appointment {
+    width: 100vw;
+    height: 100vh;
+}
+
+#Screen {
+    height: 100%;
+    width: 100%;
+}
+
+#Screen .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: .65;
+}
+
+.menu_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100px;
+    font-size: 24px;
+}
+
+.menu_item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hairdresser_menu_item {
+    border: 2px solid black;
+    background-color: orange;
+    border-radius: 20px;
+    padding: 3px 14px;
+    color: white!important;
+    margin: 7px 15px;
+}
+
+.hairdresser_menu_item:hover {
+    background-color: black;
+}
+
+.hairdresser {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 40px auto;
+}
+
+.hairdresser-image {
+    border-radius: 50%;
+    width: 170px;
+    min-width: 170px;
+    height: 170px;
+    margin-right: 20px;
+}
+
+.hairdresser-image img {
+    width: 170px;
+    height: 170px;
+}
+
+.hairdresser-info {
+    align-self: start;
+    width: 100%;
+}
+
+.hairdresser-info-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hairdresser-info-name {
+    font-size: 24px;
+}
+
+.hairdresser-info-description {
+    opacity: 0.6;
+    margin-bottom: 10px;
+}
+
+.hairdresser-info-schedule {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.warning_message {
+    opacity: 0.5;
+    margin: 10px auto;
+}
+
+.price_message {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.send_appointment {
+    margin: 30px 0;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.send_appointment .arrow-btn-bg {
+    margin-top: -1px;
+}
+
+#datePickerTitle {
+    font-size: 24px;
+}
+
+@media (max-width: 992px) {
+    .header-title h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    /**
+     * Меняем отображение парикмахеров на телефоне
+     */
+    .hairdresser {
+        flex-direction: column;
+    }
+    .hairdresser-image img {
+        margin-right: 0;
+    }
+    .hairdresser-info {
+        display: flex;
+        flex-direction: column;
+        align-self: auto;
+        align-items: center;
+        justify-content: center;
+    }
+    .hairdresser-info-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .hairdresser-info-schedule {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-title h1 {
+        font-size: 26px;
+    }
+    .header-button {
+        font-size: 24px;
+    }
+    .menu_item {
+        font-size: 18px;
+    }
+    .price_message {
+        font-size: 18px;
+    }
+    #datePickerTitle {
+        font-size: 18px;
+    }
+    .send_appointment {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,59 @@
+html,
+body {
+    height: 100%;
+}
+
+.card-right-button {
+    float: right;
+}
+
+.pagination{
+    padding: 20px 0;
+    justify-content: center;
+}
+
+.pagination ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.pagination li{
+    display: inline-block;
+    color: #222;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+}
+
+.pagination li a {
+    color: #222;
+}
+
+.pagination li.active a {
+    color: #fff;
+}
+
+.pagination li.active{
+    background-color: #2ecc71;
+    border-radius: 100%;
+    color: #fff;
+}
+
+.action-btn {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.form-control {
+    min-height: calc(1.5em + 0.75rem + 2px);
+    height: auto!important;
+}
+
+@media screen and (min-width: 768px) {
+    .table-responsive {
+        overflow: hidden!important;
+    }
+}
