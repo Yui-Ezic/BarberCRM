@@ -52,6 +52,20 @@ body {
     height: auto!important;
 }
 
+.inline-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 992px) {
+    .inline-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .table-responsive {
         overflow: hidden!important;

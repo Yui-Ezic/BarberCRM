@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use common\models\Hairdresser;
+use common\models\ServiceToHairdresser;
 use Yii;
 use common\models\Service;
 use backend\models\search\ServiceSearch;
@@ -101,12 +103,57 @@ class ServiceController extends Controller
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * @param $service_id
+     * @return string
+     */
+    public function actionAddHairdresser($service_id) {
+        $model = new ServiceToHairdresser();
+        $model->service_id = $service_id;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $service_id]);
+        }
+
+        // Получение парикмахеров к которым еще не привязанна данная услуга
+        $busy_hairdressers = (new \yii\db\Query())->select('hairdresser_id')->from('service_to_hairdresser')->where(['service_id' => $service_id]);
+        $hairdresser_list = Hairdresser::find()
+            ->where(['NOT IN', 'hairdresser.id', $busy_hairdressers])
+            ->andWhere(["<>", 'hairdresser.status', Hairdresser::STATUS_FIRED])
+            ->all();
+
+        return $this->render('add-hairdresser', [
+            'model' => $model,
+            'hairdresser_list' => $hairdresser_list,
+        ]);
+    }
+
+    /**
+     * @param $service_id
+     * @param $hairdresser_id
+     * @throws NotFoundHttpException
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
+    public function actionDeleteHairdresser($service_id, $hairdresser_id) {
+        $model = ServiceToHairdresser::find()->where(['service_id' => $service_id, 'hairdresser_id' => $hairdresser_id])->one();
+        if ($model === null){
+            throw new NotFoundHttpException("The requested record does not exist");
+        }
+
+        $model->delete();
+
+        return $this->redirect(Yii::$app->request->referrer ?: ['index']);
     }
 
     /**

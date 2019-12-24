@@ -33,6 +33,7 @@ class ServiceToHairdresser extends \yii\db\ActiveRecord
     {
         return [
             [['hairdresser_id', 'service_id', 'duration', 'price'], 'integer'],
+            [['hairdresser_id', 'service_id', 'duration', 'price'], 'required'],
             [['hairdresser_id'], 'exist', 'skipOnError' => true, 'targetClass' => Hairdresser::className(), 'targetAttribute' => ['hairdresser_id' => 'id']],
             [['service_id'], 'exist', 'skipOnError' => true, 'targetClass' => Service::className(), 'targetAttribute' => ['service_id' => 'id']],
         ];
@@ -51,6 +52,16 @@ class ServiceToHairdresser extends \yii\db\ActiveRecord
 //            'price' => Yii::t('client', 'Price'),
 //        ];
 //    }
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'Id',
+            'hairdresser_id' => 'Парикмахер',
+            'service_id' => 'Услуга',
+            'duration' => 'Длительность',
+            'price' => 'Цена',
+        ];
+    }
 
     /**
      * @return \yii\db\ActiveQuery

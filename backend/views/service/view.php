@@ -38,8 +38,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header inline-title">
                 <h4 class="card-title"> Парикмахеры предоставляющие услугу </h4>
+                <a href="<?= \yii\helpers\Url::to(['service/add-hairdresser', 'service_id' => $model->id])?>" class="btn btn-success">Добавить парикмахера</a>
             </div>
             <div class="card-body">
                 <?php if ($model->serviceToHairdressers): ?>
@@ -53,7 +54,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 Парикмахер
                             </th>
                             <th>
+                                Длительность
+                            </th>
+                            <th>
                                 Цена
+                            </th>
+                            <th>
+                                Действия
                             </th>
                             </thead>
                             <tbody>
@@ -66,7 +73,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= $serviceToHairdresser->hairdresser->getName() ?>
                                     </td>
                                     <td>
+                                        <?= $serviceToHairdresser->duration ?>
+                                    </td>
+                                    <td>
                                         <?= $serviceToHairdresser->price ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= \yii\helpers\Url::to(['service/delete-hairdresser',
+                                            'hairdresser_id' => $serviceToHairdresser->hairdresser_id,
+                                            'service_id' => $serviceToHairdresser->service_id])
+                                        ?>" onclick="return confirm('Delete entry?')">
+                                            <i class="action-btn fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
