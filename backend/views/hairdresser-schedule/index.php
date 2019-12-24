@@ -1,5 +1,6 @@
 <?php
 
+use common\models\HairdresserSchedule;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -43,8 +44,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'hairdresser_id',
                         'format' => 'raw',
-                        'value' => function (\common\models\HairdresserSchedule $schedule) {
-                            return Html::a($schedule->getHairdresserName(), ['hairdresser/view', 'id' => $schedule->hairdresser]);
+                        'value' => function (HairdresserSchedule $schedule) {
+                            return Html::a($schedule->getHairdresserName(), ['hairdresser/view', 'id' => $schedule->hairdresser_id]);
                         }
                     ],
                     'date',
